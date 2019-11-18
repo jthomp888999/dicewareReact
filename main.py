@@ -1,5 +1,4 @@
 from flask import Flask, request
-import json
 from secrets import SystemRandom
 
 from wordlists import wordlist1
