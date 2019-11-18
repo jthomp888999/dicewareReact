@@ -18,13 +18,20 @@ def word_return():
     passphrase = []
     count = 1
     if request.method == 'POST':
-        word_count = request.get_json(force=True)['word_count']
+        data = request.get_json(force=True)
+        word_count = data['word_count']
+        if 'seperator' in data:
+            seperator = request.get_json(force=True)['seperator']
+        else:
+            seperator = ''
 
         while count <= word_count:
             count += 1
             word = wordlist1.dice[dice_roll()]
             passphrase.append(word)
-    return {'password': passphrase}
+
+        final_passphrase = seperator.join(passphrase)
+        return {'password': final_passphrase}
 
 
 if __name__ == ("__main__"):
