@@ -1,9 +1,9 @@
 bin/
 include/
 lib/
-lib64/
+lib64
 pyvenv.cfg
 share/
 node_modules/
 .vscode/
-__pychace__/
+__pycache__/
