@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import fetchPass from './components/fetchPass';
 
-function App() {
+const App = () => {
+  const [pass, setPass] = useState('');
+  var data = { word_count: 4, seperator: '_' };
+
+  useEffect(() => {
+    fetchPass(data).then(res => {
+      res.text().then(data => {
+        setPass(JSON.parse(data).password);
+      });
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>{pass}</h1>
     </div>
   );
-}
+};
 
 export default App;
