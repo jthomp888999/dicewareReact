@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import fetchPass from './components/fetchPass';
+import fetchPass from './fetchPass';
 
 const App = () => {
   const [pass, setPass] = useState('');
