@@ -1,5 +1,6 @@
 from flask import Flask, request
 from secrets import SystemRandom
+import time
 
 from wordlists import wordlist1
 
@@ -30,6 +31,7 @@ def word_return():
             passphrase.append(word)
 
         final_passphrase = seperator.join(passphrase)
+        time.sleep(2)
         return {'password': final_passphrase}
 
 
