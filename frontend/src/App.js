@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Container } from 'semantic-ui-react';
+import { Button, Segment, Container } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import './app.css';
 import fetchPass from './fetchPass';
@@ -21,11 +21,13 @@ const App = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   };
   return (
-    <Container fluid textAlign={'center'}>
-      {!loading ? <h1>{pass}</h1> : <h1>Loading...</h1>}
-      <Button onClick={getPass} loading={loading} primary>
-        Get Password
-      </Button>
+    <Container textAlign={'center'}>
+      <Segment raised padded='very' inverted color='teal'>
+        {!loading ? <h1>{pass}</h1> : <h1>Loading...</h1>}
+        <Button onClick={getPass} loading={loading} primary>
+          Get Password
+        </Button>
+      </Segment>
     </Container>
   );
 };
