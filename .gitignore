@@ -1,10 +1,14 @@
+.vscode/
+
 bin/
 include/
 lib/
 lib64
 pyvenv.cfg
 share/
-node_modules/
-.vscode/
 __pycache__/
+
+node_modules/
+
 frontend/yarn.lock
+frontend/build/*
