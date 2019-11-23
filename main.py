@@ -4,7 +4,7 @@ import time
 
 from wordlists import wordlist1
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='frontend/build')
 
 
 def dice_roll():
@@ -31,7 +31,7 @@ def word_return():
             passphrase.append(word)
 
         final_passphrase = seperator.join(passphrase)
-        time.sleep(2)
+        time.sleep(2)  # Simulate slower loading
         return {'password': final_passphrase}
 
 
