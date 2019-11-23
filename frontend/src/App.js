@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Segment, Container } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import './app.css';
 
@@ -22,16 +22,14 @@ const App = () => {
     });
   };
   return (
-    <MainContainer>
-      <Segment raised padded='very' inverted color='teal'>
-        <Segment inverted padded color='blue'>
-          {!loading ? <h1>{pass}</h1> : <h1>Loading...</h1>}
-        </Segment>
+    <MainContainer
+      pass={!loading ? <h1>{pass}</h1> : <h1>Loading...</h1>}
+      button={
         <Button onClick={getPass} loading={loading} primary>
           Get Password
         </Button>
-      </Segment>
-    </MainContainer>
+      }
+    />
   );
 };
 
