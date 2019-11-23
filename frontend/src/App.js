@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
-import './app.css';
 
 import fetchPass from './fetchPass';
 import MainContainer from './components/MainContainer';

@@ -4,15 +4,15 @@ import { Container, Grid, Segment } from 'semantic-ui-react';
 const MainContainer = props => {
   const { button, pass } = props;
   return (
-    <Container textAlign='center'>
-      <Grid.Column>
-        <Segment raised padded='very' inverted color='teal'>
-          <Segment inverted padded color='blue'>
-            {pass}
+    <Container center textAlign='center' fluid className='password-box'>
+      <Grid celled='internally' centered>
+        <Grid.Row>
+          <Segment raised padded='very'>
+            <Segment padded>{pass}</Segment>
+            <Grid.Row>{button}</Grid.Row>
           </Segment>
-          {button}
-        </Segment>
-      </Grid.Column>
+        </Grid.Row>
+      </Grid>
     </Container>
   );
 };
