@@ -19,7 +19,7 @@ def word_return():
     count = 1
     if request.method == 'POST':
         data = request.get_json(force=True)
-        word_count = data['word_count']
+        word_count = int(data['word_count'])
         if 'seperator' in data:
             seperator = request.get_json(force=True)['seperator']
         else:
