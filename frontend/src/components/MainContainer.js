@@ -1,13 +1,17 @@
 import React from 'react';
 import { Container, Grid, Segment } from 'semantic-ui-react';
 
+import Selector from './Selector';
+
 const MainContainer = props => {
-  const { button, pass } = props;
+  const { button, pass, countState, sepState } = props;
+
   return (
-    <Container center textAlign='center' fluid className='password-box'>
+    <Container center textAlign='center'>
       <Grid celled='internally' centered>
         <Grid.Row>
           <Segment raised padded='very'>
+            <Selector countState={countState} sepState={sepState} />
             <Segment padded>{pass}</Segment>
             <Grid.Row>{button}</Grid.Row>
           </Segment>

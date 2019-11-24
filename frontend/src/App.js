@@ -8,20 +8,26 @@ import MainContainer from './components/MainContainer';
 const App = () => {
   const [pass, setPass] = useState('');
   const [loading, setLoading] = useState(false);
+  const [wordCount, setWordCount] = useState(4);
+  const [wordSep, setWordSep] = useState('_');
 
-  var data = { word_count: 4, seperator: '_' };
+  var data = { word_count: wordCount, seperator: wordSep };
+  console.log(wordSep);
 
   const getPass = () => {
     setLoading(true);
     fetchPass(data).then(res => {
-      res.text().then(data => {
+      res.text().then(final => {
         setLoading(false);
-        setPass(JSON.parse(data).password);
+        console.log(final);
+        setPass(JSON.parse(final).password);
       });
     });
   };
   return (
     <MainContainer
+      countState={setWordCount}
+      sepState={setWordSep}
       pass={!loading ? <h1>{pass}</h1> : <h1>Loading...</h1>}
       button={
         <Button onClick={getPass} loading={loading} primary>
