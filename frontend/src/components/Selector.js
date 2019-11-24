@@ -2,12 +2,13 @@ import React from 'react';
 import { Grid, Form } from 'semantic-ui-react';
 
 const Selector = props => {
-  const { countState, sepState } = props;
+  const { countState, sepState, error } = props;
 
   return (
     <Grid centered columns={3} divided>
       <Grid.Column>
         <Form.Input
+          error={error}
           type='number'
           min={1}
           onChange={e => countState(e.target.value)}

@@ -4,14 +4,18 @@ import { Container, Grid, Segment } from 'semantic-ui-react';
 import Selector from './Selector';
 
 const MainContainer = props => {
-  const { button, pass, countState, sepState } = props;
+  const { button, pass, countState, sepState, error } = props;
 
   return (
     <Container center textAlign='center'>
       <Grid celled='internally' centered>
         <Grid.Row>
           <Segment raised padded='very'>
-            <Selector countState={countState} sepState={sepState} />
+            <Selector
+              error={error}
+              countState={countState}
+              sepState={sepState}
+            />
             <Segment padded>{pass}</Segment>
             <Grid.Row>{button}</Grid.Row>
           </Segment>

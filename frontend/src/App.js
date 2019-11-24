@@ -10,22 +10,27 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [wordCount, setWordCount] = useState(4);
   const [wordSep, setWordSep] = useState('_');
+  const [error, setError] = useState(false);
 
   var data = { word_count: wordCount, seperator: wordSep };
-  console.log(wordSep);
 
   const getPass = () => {
     setLoading(true);
     fetchPass(data).then(res => {
       res.text().then(final => {
         setLoading(false);
-        console.log(final);
+        if (JSON.parse(final).error) {
+          setError(true);
+          console.log(error);
+        }
         setPass(JSON.parse(final).password);
       });
     });
   };
+
   return (
     <MainContainer
+      error={error}
       countState={setWordCount}
       sepState={setWordSep}
       pass={!loading ? <h1>{pass}</h1> : <h1>Loading...</h1>}
